@@ -24,10 +24,11 @@
         packages.runescape = pkgs.stdenvNoCC.mkDerivation {
           name = "runescape-font";
           dontUnpack = true;
-          src = pkgs.fetchurl {
-            url = "https://github.com/runelite/runelite/blob/master/runelite-client/src/main/resources/net/runelite/client/ui/runescape.ttf";
-            sha256 = "sha256-GNOAfqJ+wSPO6HBsMIiu7XyDlNmms8My+YQP8BrsxxM=";
-          };
+          src = "${self}/RuneScape";
+          # src = pkgs.fetchurl {
+          #   url = "https://github.com/runelite/runelite/blob/master/runelite-client/src/main/resources/net/runelite/client/ui/runescape.ttf";
+          #   sha256 = "sha256-GNOAfqJ+wSPO6HBsMIiu7XyDlNmms8My+YQP8BrsxxM=";
+          # };
           installPhase = ''
             mkdir -p $out/share/fonts/truetype
             cp -R $src $out/share/fonts/truetype/
